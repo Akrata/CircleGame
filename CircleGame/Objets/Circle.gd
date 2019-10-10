@@ -19,6 +19,14 @@ func init(_position, _radius = radius):
 	orbit_position.position.x = radius + 25
 	
 	rotation_speed = rotation_speed * pow(-1, randi() %2)
+	
+func implode():
+	$AnimationPlayer.play("implode")
+	yield($AnimationPlayer, "animation_finished")
+	queue_free()
+	
+func capture():
+	$AnimationPlayer.play("capture")
 
 func _process(delta: float) -> void:
 	$Pivot.rotation += rotation_speed * delta
