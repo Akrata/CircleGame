@@ -5,6 +5,7 @@ var Jumper = preload("res://Objets/jumper.tscn")
 
 var player
 
+
 func _ready() -> void:
 	randomize()
 	new_game()
