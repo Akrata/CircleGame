@@ -8,7 +8,7 @@ var player
 
 func _ready() -> void:
 	randomize()
-	new_game()
+	
 	
 func new_game():
 	$Camera2D.position = $StartPosition.position
@@ -16,6 +16,7 @@ func new_game():
 	player.position = $StartPosition.position
 	add_child(player)
 	player.connect("captured",self,"_on_jumper_captured")
+	player.connect("died", self, "_on_jumper_died")
 	spawn_circle($StartPosition.position)
 
 
@@ -30,5 +31,12 @@ func spawn_circle(_position = null):
 	
 func _on_jumper_captured(object):
 	$Camera2D.position = object.position
-	object.capture()
+	object.capture(player)
 	call_deferred("spawn_circle")
+	
+func _on_jumper_died():
+	get_tree().call_group("circles", "implode")
+	$Screens.game_over()
+	
+	
+	

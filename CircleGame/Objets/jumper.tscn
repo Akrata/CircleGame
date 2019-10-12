@@ -31,7 +31,9 @@ polygon = PoolVector2Array( -19.7344, -20.5059, 19.7449, -0.528389, -19.9722, 20
 z_index = -1
 points = PoolVector2Array( 145.317, -10.755 )
 gradient = SubResource( 2 )
+texture_mode = 1157496317
 joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
 [connection signal="area_entered" from="." to="." method="_on_jumper_area_entered"]
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
