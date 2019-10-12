@@ -39,6 +39,9 @@ func die():
 
 func _on_VisibilityNotifier2D_screen_exited() -> void:
 	if !target:
+<<<<<<< HEAD
 		emit_signal("died")
+=======
+>>>>>>> eabf1d2b2d52fb2e7444546cdf92feb4f0395f4e
 		die()
 	
